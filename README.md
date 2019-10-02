@@ -11,10 +11,11 @@ A Machine Learning Web Application with Responder and Keras
 「**ResponderとKerasを使って機械学習Webアプリケーションを作ってみる**」で作成したものです。
 
 ## スクリーンショット
-[![eg.1](static/images/eg1.png)](static/images/eg1.png)  
--- 
+
+<p class="info">[![eg.1](static/images/eg1.png)](static/images/eg1.png)</p>
+--- 
 [![eg.2](static/images/eg2.png)](static/images/eg2.png)  
---
+---
 [![eg.3](static/images/eg3.png)](static/images/eg3.png)  
 --
 [![eg.4](static/images/eg4.png)](static/images/eg4.png)  
