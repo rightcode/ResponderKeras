@@ -12,7 +12,7 @@ A Machine Learning Web Application with Responder and Keras
 
 ## スクリーンショット
 
-<p class="info">[![eg.1](static/images/eg1.png)](static/images/eg1.png)</p>
+[![eg.1](static/images/eg1.png)](static/images/eg1.png)
 --- 
 [![eg.2](static/images/eg2.png)](static/images/eg2.png)  
 ---
