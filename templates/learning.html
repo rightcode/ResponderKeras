@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<br>
+<h1>{{ title }}</h1>
+<hr>
+{% autoescape false %}
+{{ 'データセットを選択' | badge }}
+{{ 'ネットワークを作成' | badge }}
+{{ '学習' | badge_active }}
+{{ '結果' | badge }}
+{% endautoescape %}
+
+<br>
+<br>
+<p><span class="text-secondary">ID: {{uid}}</span></p>
+<p>ネットワークを学習中...</p>
+<p>学習が終了したら自動的にリダイレクトされるのでこのままお待ちください。</p>
+
+<script>
+    const timer = 5000;    // ミリ秒で間隔の時間を指定
+    window.addEventListener('load',function(){
+        setInterval('location.reload()',timer);
+    });
+</script>
+
+{% endblock %}

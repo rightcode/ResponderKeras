@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<br>
+<h1>ネットワークを作成しましょう</h1>
+<hr>
+<a href="/" class="btn btn-primary">もどる</a>
+<br>
+<br>
+{% autoescape false %}
+{{ 'データセットを選択' | badge }}
+{{ 'ネットワークを作成' | badge_active }}
+{{ '学習' | badge }}
+{{ '結果' | badge }}
+
+
+<br><br>
+
+<p>
+    選択したデータセット :<br>
+    {{ dataset }}
+</p>
+<p>
+    全結合層を追加する :<br>
+    {{ 10 | fc }}
+    {{ 50 | fc }}
+    {{ 100 | fc }}
+    {{ 300 | fc }}
+    {{ 500 | fc }}
+    {{ 1000 | fc }}
+    {{ 2000 | fc }}
+    {{ 3000 | fc }}
+    <a href="" class="btn btn-danger btn-sm">設定取り消し</a>
+</p>
+<br>
+<br>
+<hr>
+<form action="/learn/{{ dataset }}" method="post">
+    <div class="row">
+
+        <!--   ここからネットワーク作成情報     -->
+        <div class="col-md-8">
+            <div class="text-center">
+                <h4>現在のネットワーク構成</h4>
+                <div class="card" style="display: inline-block">
+                    <div class="card-body">
+                        Input : {{ input_length }}
+                    </div>
+                </div>
+                <input type="hidden" name="input" value="{{ input_length }}">
+
+                <br>|<br>
+
+                <div id="add_layer"><!-- ここに中間層が追加される --></div>
+
+                <div class="card" style="display: inline-block">
+                    <div class="card-body">
+                        Output (Class size) : {{ output_length }}
+                    </div>
+                </div>
+                <input type="hidden" name="output" value="{{ output_length }}">
+
+            </div>
+        </div>
+
+        <!--    ここからパラメータ入力フォーム    -->
+        <div class="col-md-4">
+            <div class="text-center">
+                <h4>パラメータ設定</h4>
+                <p>学習回数 : epoch = <input type="text" name="epoch" size="4" maxlength="4" value="10"></p>
+                <p>初期学習率 : η = <input type="text" name="eta" size="6" maxlength="6" value="0.01"></p>
+                <p>
+                    学習率減衰 : dec = <input type="text" name="decay" size="8" maxlength="8" value="1e-6">
+                    <br>
+                    (各学習ごとに学習率を減衰させる定数)
+                </p>
+                <p>
+                    Momentum : α = <input type="text" name="momentum" size="6" maxlength="6" value="0.9">
+                    <br>
+                    (Momentum SGDの慣性項)</p>
+            </div>
+        </div>
+
+    </div>
+    <br><br><br>
+    <div class="text-center">
+        <button href="#" type="submit" class="btn btn-primary">このネットワークで学習を行う</button>
+    </div>
+</form>
+
+{% endautoescape %}
+
+<script>
+    function add_fc(neurons)
+    {
+        var div_element = document.createElement("div");
+        div_element.innerHTML = '<div class="card bg-secondary text-white" style="display: inline-block">' +
+                                    '<div class="card-body">' +
+                                        'Full Connection : ' + neurons +
+                                    '</div>' +
+                                '</div>' +
+                                '<input type="hidden" name="fc[]" value="' + neurons + '"><br>|<br>';
+        var parent_object = document.getElementById("add_layer");
+        parent_object.appendChild(div_element);
+    }
+</script>
+{% endblock %}
