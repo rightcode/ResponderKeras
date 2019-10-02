@@ -9,6 +9,15 @@ A Machine Learning Web Application with Responder and Keras
   
 このアプリケーションは株式会社ライトコードで運営するブログにて連載している
 「**ResponderとKerasを使って機械学習Webアプリケーションを作ってみる**」で作成したものです。
+
+## スクリーンショット
+[![eg.1](static/images/eg1.png)](static/images/eg1.png)  
+-- 
+[![eg.2](static/images/eg2.png)](static/images/eg2.png)  
+--
+[![eg.3](static/images/eg3.png)](static/images/eg3.png)  
+--
+[![eg.4](static/images/eg4.png)](static/images/eg4.png)  
       
 ## 開発
 [株式会社ライトコード ー WEB・モバイル・ゲーム開発に強い会社](https://rightcode.co.jp)  
